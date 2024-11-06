@@ -1,1 +1,4 @@
 select * from postac
+select * from walizka
+select * from izba
+select * from przetwory
