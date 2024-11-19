@@ -1,1 +1,3 @@
 select * from postac
+select * from Marynarz
+select * from zwierz
