@@ -6,7 +6,9 @@ SELECT AVG(1743-YEAR(datUr)) AS Sredni_Wiek, rodzaj FROM kreatura GROUP BY rodza
 
 ZADANIE 2:
 SELECT SUM(waga) AS Waga, rodzaj FROM zasob GROUP BY rodzaj;
+SELECT SUM(ilosc) AS Ilosc, SUM(waga) AS Waga, AVG(waga) AS Srednia_Waga, nazwa FROM zasob GROUP BY nazwa HAVING ilosc>=4 AND Waga>10;
+SELECT COUNT(nazwa) AS Ilosc_Nazw, rodzaj, MIN(ilosc) AS Minimalna_Ilosc FROM zasob GROUP BY rodzaj HAVING Minimalna_Ilosc>1;
 
-
-
-
+Zadanie 3:
+SELECT SUM(ekwipunek.ilosc) AS Ilosc, kreatura.nazwa FROM ekwipunek INNER JOIN kreatura ON ekwipunek.idKreatury=kreatura.idKreatury GROUP BY kreatura.nazwa;
+SELECT kreatura.nazwa AS Nazwa_Kreatury, zasob.nazwa AS Nazwa_Zasobu FROM ekwipunek INNER JOIN kreatura ON ekwipunek.idKreatury=kreatura.idKreatury INNER JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu;
