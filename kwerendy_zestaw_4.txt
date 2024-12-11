@@ -12,3 +12,12 @@ SELECT COUNT(nazwa) AS Ilosc_Nazw, rodzaj, MIN(ilosc) AS Minimalna_Ilosc FROM za
 Zadanie 3:
 SELECT SUM(ekwipunek.ilosc) AS Ilosc, kreatura.nazwa FROM ekwipunek INNER JOIN kreatura ON ekwipunek.idKreatury=kreatura.idKreatury GROUP BY kreatura.nazwa;
 SELECT kreatura.nazwa AS Nazwa_Kreatury, zasob.nazwa AS Nazwa_Zasobu FROM ekwipunek INNER JOIN kreatura ON ekwipunek.idKreatury=kreatura.idKreatury INNER JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu;
+SELECT kreatura.nazwa FROM kreatura LEFT JOIN ekwipunek ON kreatura.idkreatury=ekwipunek.idkreatury WHERE ekwipunek.idkreatury IS NULL;
+
+Zadanie 4:
+SELECT kreatura.nazwa, zasob.nazwa FROM ekwipunek LEFT JOIN kreatura ON kreatura.idkreatury=ekwipunek.idkreatury LEFT JOIN zasob ON zasob.idzasobu=ekwipunek.idzasobu WHERE YEAR(kreatura.dataUr) BETWEEN 1670 AND 1679;
+SELECT kreatura.nazwa FROM ekwipunek LEFT JOIN kreatura ON kreatura.idkreatury=ekwipunek.idkreatury LEFT JOIN zasob ON zasob.idzasobu=ekwipunek.idzasobu WHERE zasob.rodzaj="jedzenie" ORDER BY kreatura.dataUr DESC LIMIT 5;
+SELECT A.nazwa AS kreatura_1, B.nazwa AS kreatura_2 FROM kreatura A JOIN kreatura B ON ABS(A.idkreatury - B.idkreatury)=5 WHERE A.idkreatury < B.idkreatury;
+
+Zadanie 5:
+SELECT DISTINCT(kreatura.rodzaj) AS rodzaj, AVG(zasob.waga) AS Srednia_Waga_Zasobow FROM ekwipunek LEFT JOIN kreatura ON kreatura.idkreatury=ekwipunek.idkreatury LEFT JOIN zasob ON zasob.idzasobu=ekwipunek.idzasobu WHERE ekwipunek.ilosc<30 AND kreatura.rodzaj != "malpa" OR kreatura.rodzaj != "waz" GROUP BY kreatura.rodzaj;
