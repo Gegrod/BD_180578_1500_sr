@@ -21,3 +21,4 @@ SELECT A.nazwa AS kreatura_1, B.nazwa AS kreatura_2 FROM kreatura A JOIN kreatur
 
 Zadanie 5:
 SELECT DISTINCT(kreatura.rodzaj) AS rodzaj, AVG(zasob.waga) AS Srednia_Waga_Zasobow FROM ekwipunek LEFT JOIN kreatura ON kreatura.idkreatury=ekwipunek.idkreatury LEFT JOIN zasob ON zasob.idzasobu=ekwipunek.idzasobu WHERE ekwipunek.ilosc<30 AND kreatura.rodzaj != "malpa" OR kreatura.rodzaj != "waz" GROUP BY kreatura.rodzaj;
+-
