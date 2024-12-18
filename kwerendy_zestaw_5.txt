@@ -5,3 +5,4 @@ CREATE TABLE etapy_wyprawy AS SELECT * FROM wikingowie.etapy_wyprawy;
 CREATE TABLE sektor AS SELECT * FROM wikingowie.sektor;
 CREATE TABLE wyprawa AS SELECT * FROM wikingowie.wyprawa;
 SELECT kreatura.nazwa FROM kreatura INNER JOIN uczestnicy ON kreatura.idKreatury=uczestnicy.id_uczestnika;
+-
