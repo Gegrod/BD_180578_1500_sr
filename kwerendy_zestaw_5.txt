@@ -9,3 +9,4 @@ SELECT wyprawa.nazwa AS Nazwa_Wyprawy, SUM(ekwipunek.ilosc) AS Suma_Ilosci_Rzecz
 
 Zadanie 2:
 SELECT wyprawa.nazwa, COUNT(id_uczestnika) AS Ilosc_Uczestnikuw, GROUP_CONCAT(kreatura.nazwa SEPARATOR ', ') AS Nazwy_Uczestnikuw FROM wyprawa INNER JOIN uczestnicy ON wyprawa.id_wyprawy=uczestnicy.id_wyprawy INNER JOIN kreatura ON uczestnicy.id_uczestnika=kreatura.idkreatury GROUP BY wyprawa.nazwa;
+SELECT idEtapu, idwyprawy, wyprawa.nazwa AS Nazwa_Wyprawy, sektor.nazwa AS Nazwa_Sektoru, wyprawa.kierownik FROM etapy_wyprawy INNER JOIN wyprawa ON etapy_wyprawy.idWyprawy=wyprawa.id_wyprawy INNER JOIN sektor ON etapy_wyprawy.sektor=sektor.id_sektora ORDER BY data_rozpoczecia, idEtapu;
